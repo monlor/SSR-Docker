@@ -1,9 +1,8 @@
-FROM alpine
+FROM python:3.8-alpine
 
 ARG SSR_URL=https://github.com/winterssy/shadowsocksr/archive/manyuser.zip
 
-RUN set -ex && \
-    apk add --no-cache libsodium py-pip && \
+RUN apk add --no-cache libsodium && \
     pip --no-cache-dir install $SSR_URL
 
 WORKDIR /app
